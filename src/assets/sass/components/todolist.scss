@@ -1,0 +1,21 @@
+		ul {
+			li {
+				display: flex;
+        align-items: center ;
+				gap: 1.25rem;
+				padding: 1.25rem;
+				position: relative;
+        .complete{
+          text-decoration: line-through;
+          color: #727272;
+        }
+				&::before {
+					content: "";
+					position: absolute;
+					bottom: 1px;
+					height: 1px;
+					background-color: $orange;
+					width: 95%;
+				}
+			}
+		}
