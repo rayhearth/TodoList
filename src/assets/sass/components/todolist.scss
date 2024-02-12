@@ -7,15 +7,15 @@
 		padding: 1.25rem;
 		position: relative;
 
+		label{
+			display: flex;
+			gap: 1.25rem;
+		}
+		
 		.disabled {
 			text-decoration: line-through;
 			color: $orange;
 		}
-		.item{
-			display: flex;
-			gap: 1.25rem;
-		}
-
 		.edit{
 			display: flex;
 			align-items: center;
@@ -32,3 +32,8 @@
 		}
 	}
 }
+
+input[type="checkbox"]{
+	
+}
+

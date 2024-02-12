@@ -18,20 +18,18 @@ const Todo = ({ todo, handleEdit }) => {
 
 	return (
 		<li className="todo-container">
-			<div className="item">
+				<label
+					htmlFor={todo.id}
+					className={`${todo.status === "complete" ? "disabled" : ""}`}
+				>
 				<input
 					type="checkbox"
 					name={todo.id}
 					checked={todo.status === "complete"}
 					onChange={handleStatus}
 				/>
-				<label
-					htmlFor={todo.id}
-					className={`${todo.status === "complete" ? "disabled" : ""}`}
-				>
 					{todo.text}
 				</label>
-			</div>
 			<div className="edit">
 				<button onClick={(e) => handleEdit(todo.id)}>
 					<FiEdit3 />
