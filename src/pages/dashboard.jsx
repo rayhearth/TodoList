@@ -21,13 +21,12 @@ const Dashboard = () => {
 				id: Math.floor(Math.random() * 1000),
 				text,
 				status: "incomplete",
-			}),
+			})
 		);
-
+		setText("");
 	};
 
 	const handleEdit = (id) => {
-    e.preventDefault()
 		const existingTodo = todos.find((todo) => todo.id === id);
 
 		setText(existingTodo.text);
