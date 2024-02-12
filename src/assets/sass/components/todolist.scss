@@ -2,6 +2,7 @@
 	.todo-container {
 		display: flex;
 		align-items: center;
+		justify-content: space-between;
 		gap: 1.25rem;
 		padding: 1.25rem;
 		position: relative;
@@ -9,6 +10,16 @@
 		.disabled {
 			text-decoration: line-through;
 			color: $orange;
+		}
+		.item{
+			display: flex;
+			gap: 1.25rem;
+		}
+
+		.edit{
+			display: flex;
+			align-items: center;
+			gap: 1rem;
 		}
 
 		&::before {
