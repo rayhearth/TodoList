@@ -21,12 +21,16 @@ const Todo = ({ todo, handleEdit }) => {
 			<div className="item">
 				<input
 					type="checkbox"
+					name={todo.id}
 					checked={todo.status === "complete"}
 					onChange={handleStatus}
 				/>
-				<p className={`${todo.status === "complete" ? "disabled" : ""}`}>
+				<label
+					htmlFor={todo.id}
+					className={`${todo.status === "complete" ? "disabled" : ""}`}
+				>
 					{todo.text}
-				</p>
+				</label>
 			</div>
 			<div className="edit">
 				<button onClick={(e) => handleEdit(todo.id)}>
