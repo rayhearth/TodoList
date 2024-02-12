@@ -29,12 +29,13 @@
 			height: 1px;
 			background-color: $orange;
 			width: 95%;
-			@media screen and (max-width: 420px) {
+			@media screen and (min-width: 1440px) {
+				width: 97%;
+			}
+			@media screen and (max-width: 425px) {
 				width: 90%;
 			}
 		}
-
-		
 	}
 }
 
