@@ -16,7 +16,7 @@ for (const path of Object.keys(pages)) {
 	const fileName = path.match(/\.\/pages\/(.*)\.jsx$/)?.[1];
 	if (!fileName) {
 		continue;
-	}
+	} 
 
 	const normalizedPath = fileName.includes("$")
 		? fileName.replace("$", ":")

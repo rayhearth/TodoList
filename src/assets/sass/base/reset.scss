@@ -1,6 +1,6 @@
 @font-face {
-	font-family: "lexendR";
-	src: url(../../fonts/LexendDeca-Regular.ttf);
+	font-family: "lexend Deca";
+	src: url(../../fonts/LexendDeca-Black.ttf) format('truetype');
 }
 
 /*****RESET*****/
@@ -17,7 +17,7 @@
 }
 
 html {
-	font-family: lexendR, monospace, sans-serif;
+	font-family: lexend Deca, monospace, sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	text-align: center;
