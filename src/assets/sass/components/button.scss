@@ -1,0 +1,12 @@
+button{
+  background-color: $orange;
+  padding: 1.25rem 0.75rem;
+  color: $cream;
+  font-weight: bold;
+  border-radius: 1.25rem;
+  display: flex;
+  
+  img{
+    height: 1.25rem;
+  }
+}
