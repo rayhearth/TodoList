@@ -1,0 +1,14 @@
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin-bottom: 1rem;
+  label {
+      font-weight: bold;
+      color: $grey;
+  }
+  input {
+      padding: 0.313rem;
+      font-size: 1.2rem;
+  }
+}
