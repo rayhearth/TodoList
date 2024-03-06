@@ -1,5 +1,32 @@
+.sign-in, .sign-up{
+  padding: 1.25rem;
+  width: 100%;
+}
+
+.login{
+  background-color: $orange;
+  h2{
+    text-align: left;
+  }
+}
+
+form{
+  padding: 2.25rem 0;
+}
+
+
 .sign-in{
   background-color: $cream;
+  border-bottom-left-radius: 100px;
+  position: relative;
+  &::after{
+    content: url("../img/corner-rigth-top.svg");
+    position: absolute;
+    right: 0;
+    bottom: -102px;
+    width: 10%;
+    z-index: 10;
+  }
   input{ 
     background-color: $orange;
   }
@@ -7,7 +34,7 @@
 
 
 .sign-up{
-background-color: $orange;
+
 input{
   background-color: $cream;
 }
