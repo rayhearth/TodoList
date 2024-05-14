@@ -21,14 +21,14 @@ html {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	text-align: center;
-	color: $dark;
+	color: variables.$dark;
 	font-weight: 600;
 }
 
 body {
 	margin: 0;
 	min-height: 100vh;
-	background-color: $cream;
+	background-color: variables.$cream;
 }
 
 .main {
@@ -70,7 +70,7 @@ button {
 	justify-content: center;
 	align-items: center;
 	background-color: transparent;
-	color: $dark;
+	color: variables.$dark;
 	border: none;
 	justify-content: center;
 	gap: 0.25rem;

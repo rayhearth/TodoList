@@ -1,4 +1,4 @@
-@import "./utils/_variables";
+@use "./utils/_variables";
 @import "./base/reset";
 
 // @import "./layout/_footer";
@@ -14,4 +14,4 @@
 // @import "./pages/error";
 @import "./pages/home";
 @import "./pages/dashboard.scss";
-@import "./pages/login.scss"
+@import "./pages/login.scss";

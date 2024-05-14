@@ -14,7 +14,8 @@ const Dashboard = () => {
 	const handleAdd = () => {
 		if (text === "") {
 			return;
-		}
+		};
+
 
 		dispatch(
 			addTodos({
@@ -32,6 +33,13 @@ const Dashboard = () => {
 		setText(existingTodo.text);
 		dispatch(cancelTodos(id));
 	};
+
+	const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      handleAdd();
+    }
+  };
 
 	return (
 		<div>
@@ -54,6 +62,7 @@ const Dashboard = () => {
 							minLength="2"
 							maxLength="50"
 							onChange={(e) => setText(e.target.value)}
+							onKeyDown={handleKeyDown}
 						/>
 					</div>
 				</div>

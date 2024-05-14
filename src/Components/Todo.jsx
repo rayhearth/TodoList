@@ -12,7 +12,6 @@ const Todo = ({ todo, handleEdit }) => {
 	};
 
 	const handleDelete = () => {
-		console.log("hello");
 		dispatch(cancelTodos(todo.id));
 	};
 

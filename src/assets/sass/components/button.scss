@@ -1,6 +1,6 @@
 .start-button {
-	background-color: $orange;
-	color: $cream;
+	background-color: variables.$orange;
+	color: variables.$cream;
 	font-weight: bold;
 	border-radius: 1.25rem;
 	display: flex;

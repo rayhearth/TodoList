@@ -2,9 +2,9 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
 	todos: [
-		{ id: 1, tex: "Create a todolist", status: "incomplete" },
-		{ id: 2, tex: "update a todolist", status: "incomplete" },
-		{ id: 3, tex: "delete todos", status: "incomplete" },
+		// { id: 1, tex: "Create a todolist", status: "incomplete" },
+		// { id: 2, tex: "update a todolist", status: "incomplete" },
+		// { id: 3, tex: "delete todos", status: "incomplete" },
 	],
 };
 

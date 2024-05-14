@@ -1,11 +1,11 @@
 .todo {
-	background-color: $blue;
+	background-color: variables.$blue;
 	display: flex;
 	flex-direction: column;
 	.todolist {
 		margin: 1.25rem;
 		border-radius: 25px;
-		background-color: $cream;
+		background-color: variables.$cream;
     .add{
       display: flex;
       align-items: center;
