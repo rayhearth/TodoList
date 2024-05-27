@@ -1,19 +1,67 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router";
 
 const Login = () => {
+	let navigate = useNavigate();
+
+	const [credentials, setCredentials] = useState({
+		email: "dead@pool.com",
+		password: "laught",
+		remember: false,
+	});
+
+	const onChange = (e) => {
+		setCredentials({
+			...credentials,
+			[e.target.name]: e.target.value,
+		});
+	};
+
+	const onSubmit = (e) => {
+		e.preventDefault,
+			dataServices
+				.userLogin(credentials)
+				.then((res) => {
+					accountServices.saveToken(res.body.token);
+					navigate("/dashboard");
+				})
+				.catch((error) => console.log(error));
+	};
+
 	return (
 		<section className="login">
 			<div className="sign-in">
 				<h2> Connexion </h2>
-				<form action="">
+				<form onSubmit={onSubmit}>
 					<div className="input-wrapper">
 						<label htmlFor="mail-connect">Email address</label>
-						<input type="text" id="mail-connect" />
+						<input
+							type="text"
+							name="mail-connect"
+							value={credentials.email}
+							onchange={onChange}
+							id="mail-connect"
+						/>
 					</div>
 					<div className="input-wrapper">
 						<label htmlFor="password-connect">password</label>
 						<input type="text" id="password-connect" />
 					</div>
+
+					<div className="input-remember">
+						<label htmlFor="remember-me">Remember me</label>
+						<input
+							type="checkbox"
+							id="remember-me"
+							className="form-check-input"
+							onChange={onChange}
+						/>
+					</div>
+
+					<button type="submit" className="sign-in-button">
+						Se connecter
+					</button>
+
 				</form>
 			</div>
 			<div className="sign-up">
@@ -27,6 +75,10 @@ const Login = () => {
 						<label htmlFor="password-register">password</label>
 						<input type="text" id="password-register" />
 					</div>
+
+					<button type="submit" className="sign-in-button">
+						S'inscrire
+					</button>
 				</form>
 			</div>
 		</section>
