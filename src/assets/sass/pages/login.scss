@@ -39,3 +39,13 @@ input{
   background-color: variables.$cream;
 }
 }
+
+input[type='checkbox']{
+  background-color: variables.$cream;
+  border: 1px solid variables.$orange;
+}
+
+input:checked{
+  border: none;
+  outline: 2px solid variables.$orange
+}

@@ -12,5 +12,5 @@ export default defineConfig({
       dirs: 'src/pages'
     }
     )
-  ]
+  ],
 })

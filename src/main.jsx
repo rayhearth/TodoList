@@ -10,6 +10,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const pages = import.meta.glob("./pages/**/*.jsx", { eager: true });
 
+// import routes from '~react-pages'
+// console.log(routes);
 const routes = [];
 
 for (const path of Object.keys(pages)) {
@@ -23,7 +25,7 @@ for (const path of Object.keys(pages)) {
 		: fileName.replace(/\/index/, "");
 
 	routes.push({
-		path: fileName === "index" ? "/" : `${normalizedPath.toLocaleLowerCase()}`,
+		path: fileName === "Index" ? "/" : `${normalizedPath.toLocaleLowerCase()}`,
 		Element: pages[path].default,
 		loader: pages[path]?.loader,
 		action: pages[path]?.action,

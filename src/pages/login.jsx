@@ -39,7 +39,7 @@ const Login = () => {
 							type="text"
 							name="mail-connect"
 							value={credentials.email}
-							onchange={onChange}
+							onChange={onChange}
 							id="mail-connect"
 						/>
 					</div>
