@@ -1,11 +1,16 @@
-import Index from "./pages/Index";
+import { useState } from "react";
+
+import { Outlet } from "react-router";
+
 
 
 
 
 function App() {
 	return (
-		<Index/>
+		<>
+		<Outlet/>
+		</>
 	);
 }
 
