@@ -1,7 +1,10 @@
 import React from "react";
 import Todo from "../../Components/Todo";
 
+
 const Index = () => {
+
+
 	return (
 		<div className="todoapp stack-large">
 			<h1>TodoMatic</h1>
@@ -45,9 +48,9 @@ const Index = () => {
 				className="todo-list stack-large stack-exception"
 				aria-labelledby="list-heading"
 			>
-				<Todo name="eat" completed={true}/>
-				<Todo name="sleep" completed={false}/>
-				<Todo name="start again" completed={false}/>
+				<Todo name="eat" completed={true} id="todo-0"/>
+				<Todo name="sleep" completed={false} id="todo-1"/>
+				<Todo name="start again" completed={false} id="todo-2"/>
 			</ul>
 		</div>
 	);

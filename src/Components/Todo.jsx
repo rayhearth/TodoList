@@ -1,17 +1,16 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { cancelTodos, changeTodoStatus } from "../feature/todo.slice";
-import { MdOutlineDeleteSweep } from "react-icons/md";
-import { FiEdit3 } from "react-icons/fi";
 
-const Todo = ({name}) => {
+
+const Todo = ({name, completed, id}) => {
 	
-
+	
 	return (
 		<li className="todo stack-small">
 					<div className="c-cb">
-						<input id="todo-0" type="checkbox" name="todo-0" defaultChecked={true} />
-						<label className="todo-label" htmlFor="todo-0">
+						<input id={id} type="checkbox" name={id} defaultChecked={completed} />
+						<label className="todo-label" htmlFor={id}>
 							{name}
 						</label>
 					</div>

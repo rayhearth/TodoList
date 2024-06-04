@@ -1,6 +1,8 @@
 import { useState } from "react";
 
+
 import { Outlet } from "react-router";
+import DATA from "./api/data";
 
 
 
@@ -9,7 +11,7 @@ import { Outlet } from "react-router";
 function App() {
 	return (
 		<>
-		<Outlet/>
+		<Outlet tasks={DATA}/>
 		</>
 	);
 }
