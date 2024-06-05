@@ -1,43 +1,29 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
-	todos: [
-		// { id: 1, tex: "Create a todolist", status: "incomplete" },
-		// { id: 2, tex: "update a todolist", status: "incomplete" },
-		// { id: 3, tex: "delete todos", status: "incomplete" },
-	],
-};
+const initialState = [
+		{ id: 1, name: "Create a todolist", completed: "false" },
+		{ id: 2, name: "update a todolist", completed: "true" },
+		{ id: 3, name: "delete todos", completed: "true" },
+	];
 
 export const todoSlice = createSlice({
 	name: "todos",
 	initialState,
 	reducers: {
-		addTodos: (state, action) => {
-			const newTodo = action.payload;
-			state.todos.push(newTodo);
+		addTodo: (state, action) => {
+			state.push(action.payload);
 		},
-		editTodos: (state, action) => {
-			const { id, text } = action.payload;
-			const existingTodo = state.todos.find((todo) => todo.id === id);
-			if (existingTodo) {
-				existingTodo.text = text;
+		toggleTodo: (state, action) => {
+			const todo = state.find((todo) => todo.id === action.payload);
+			if (todo) {
+				todo.completed = !todo.completed;
 			}
 		},
-		cancelTodos: (state, action) => {
-			const id = action.payload;
-			state.todos = state.todos.filter((todo) => todo.id !== id);
-		},
-		changeTodoStatus: (state, action) => {
-			const id = action.payload;
-			const existingTodo = state.todos.find((todo) => todo.id === id);
-			if (existingTodo.status == "incomplete") {
-				existingTodo.status = "complete";
-			} else {
-				existingTodo.status = "incomplete";
-			}
+		deleteTodo: (state, action) => {
+			return state.filter((todo) => todo.id !== action.payload);
 		},
 	},
 });
 
-export const { addTodos, editTodos, cancelTodos, changeTodoStatus } =	todoSlice.actions;
+export const { addTodo, toggleTodo, deleteTodo } = todoSlice.actions;
 export default todoSlice.reducer;

@@ -1,10 +1,19 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { cancelTodos, changeTodoStatus } from "../feature/todo.slice";
+import { toggleTodo, deleteTodo } from "../feature/todo.slice";
 
 
 const Todo = ({name, completed, id}) => {
-	
+
+	const dispatch = useDispatch();
+
+    const handleStatus = () => {
+        dispatch(toggleTodo(id)); // Utilisez l'id correct
+    };
+
+    const handleDelete = () => {
+        dispatch(deleteTodo(id)); // Utilisez l'id correct
+    };
 	
 	return (
 		<li className="todo stack-small">

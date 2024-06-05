@@ -1,9 +1,30 @@
-import React from "react";
+import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { addTodo } from '../../feature/todo.slice';
 import Todo from "../../Components/Todo";
-
 
 const Index = () => {
 
+	const tasks = useSelector((state) => state.todos);
+	// const { tasks } = useOutletContext();
+
+	const dispatch = useDispatch();
+  const [newTodoName, setNewTodoName] = useState('');
+
+	const handleAddTodo = (e) => {
+    e.preventDefault();
+    const newTodo = {
+      id: Date.now(),
+      name: newTodoName,
+      completed: false,
+    };
+    dispatch(addTodo(newTodo));
+    setNewTodoName('');
+  };
+
+	const taskList = tasks.map((task) => (
+    <Todo key={task.id} id={task.id} name={task.name} completed={task.completed} />
+  ));
 
 	return (
 		<div className="todoapp stack-large">
@@ -48,9 +69,7 @@ const Index = () => {
 				className="todo-list stack-large stack-exception"
 				aria-labelledby="list-heading"
 			>
-				<Todo name="eat" completed={true} id="todo-0"/>
-				<Todo name="sleep" completed={false} id="todo-1"/>
-				<Todo name="start again" completed={false} id="todo-2"/>
+				{taskList}
 			</ul>
 		</div>
 	);
