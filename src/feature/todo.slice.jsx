@@ -1,10 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = [
+const initialState = {
+	todos:[
 	{ id: 1, name: "Create a todolist", completed: "false" },
 	{ id: 2, name: "update a todolist", completed: "true" },
 	{ id: 3, name: "delete todos", completed: "true" },
-];
+],
+inputValue:""
+};
 
 export const todoSlice = createSlice({
 	name: "todos",
@@ -22,8 +25,11 @@ export const todoSlice = createSlice({
 		deleteTodo: (state, action) => {
 			return state.filter((todo) => todo.id !== action.payload);
 		},
+		setInputValue:(state, action) => {
+			state.inputValue = action.payload;
+		}
 	},
 });
 
-export const { addTodo, toggleTodo, deleteTodo } = todoSlice.actions;
+export const { addTodo, toggleTodo, deleteTodo, setInputValue } = todoSlice.actions;
 export default todoSlice.reducer;
