@@ -1,19 +1,12 @@
-import { useState } from "react";
-
-
 import { Outlet } from "react-router";
-import DATA from "./api/data";
-import Todo from "./Components/Todo";
 
 
 function App() {
-	
-		return (
+	return (
 		<>
-		<Outlet context={{ tasks: DATA}}/>
+			<Outlet />
 		</>
 	);
-	
 }
 
 export default App;

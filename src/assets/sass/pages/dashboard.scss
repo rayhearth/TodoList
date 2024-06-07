@@ -1,11 +1,9 @@
-.todo {
-	background-color: variables.$blue;
-	display: flex;
-	flex-direction: column;
-	.todolist {
+
+	.todo-list {
 		margin: 1.25rem;
-		border-radius: 25px;
-		background-color: variables.$cream;
+		padding: 2rem;
+		border-radius: 25px 0 25px 0;
+		background-color: variables.$blue;
     .add{
       display: flex;
       align-items: center;
@@ -14,4 +12,3 @@
       text-align: left;
     }
 	}
-}

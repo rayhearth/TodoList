@@ -1,30 +1,33 @@
-import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { addTodo } from '../../feature/todo.slice';
+import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { addTodo } from "../../feature/todo.slice";
 import Todo from "../../Components/Todo";
 
 const Index = () => {
-
 	const tasks = useSelector((state) => state.todos);
-	// const { tasks } = useOutletContext();
 
 	const dispatch = useDispatch();
-  const [newTodoName, setNewTodoName] = useState('');
+	const [newTodoName, setNewTodoName] = useState("");
 
 	const handleAddTodo = (e) => {
-    e.preventDefault();
-    const newTodo = {
-      id: Date.now(),
-      name: newTodoName,
-      completed: false,
-    };
-    dispatch(addTodo(newTodo));
-    setNewTodoName('');
-  };
+		e.preventDefault();
+		const newTodo = {
+			id: Date.now(),
+			name: newTodoName,
+			completed: false,
+		};
+		dispatch(addTodo(newTodo));
+		setNewTodoName("");
+	};
 
 	const taskList = tasks.map((task) => (
-    <Todo key={task.id} id={task.id} name={task.name} completed={task.completed} />
-  ));
+		<Todo
+			key={task.id}
+			id={task.id}
+			name={task.name}
+			completed={task.completed}
+		/>
+	));
 
 	return (
 		<div className="todoapp stack-large">
