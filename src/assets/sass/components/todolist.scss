@@ -6,6 +6,7 @@
 		padding: 1.25rem;
 		position: relative;
 		background-color: variables.$cream;
+		border-radius: 1.5rem;
 		.c-cb{
 			display: flex;
 			align-items: center;
@@ -17,16 +18,16 @@
 			gap: 2rem;
 		}
 
-		.todo-label {
-			display: flex;
-			gap: 1.25rem;
-		}
+		// .todo-label {
+		// 	display: flex;
+		// 	gap: 1.25rem;
+		// }
 	}
 
-	// 	.disabled {
-	// 		text-decoration: line-through;
-	// 		color: variables.$orange;
-	// 	}
+		.disabled {
+			text-decoration: line-through;
+			color: variables.$orange;
+		}
 	// 	.edit {
 	// 		display: flex;
 	// 		align-items: center;

@@ -64,6 +64,15 @@ input {
 	text-align: inherit;
 }
 
+input:disabled,
+textarea:disabled,
+select:disabled {
+  background-color: #f0f0f0; /* Couleur de fond grise clair */
+  color: #999999; /* Texte gris */
+  cursor: not-allowed; /* Curseur non autorisé */
+  opacity: 0.5; /* Réduire l'opacité */
+}
+
 button {
 	cursor: pointer;
 	display: flex;
