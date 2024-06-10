@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { toggleTodo, deleteTodo } from "../feature/todo.slice";
+import { MdOutlineDeleteSweep } from "react-icons/md";
+import { FiEdit3 } from "react-icons/fi";
 
 
 const Todo = ({ name, completed, id }) => {
@@ -58,11 +60,9 @@ const Todo = ({ name, completed, id }) => {
           </div>
           <div className="btn-group">
             <button type="button" className="btn" onClick={() => setIsEditing(true)}>
-              Éditer <span className="visually-hidden">{name}</span>
+            <FiEdit3 /> <span className="visually-hidden">{name}</span>
             </button>
-            <button type="button" className="btn btn__danger" onClick={handleDelete}>
-              Supprimer <span className="visually-hidden">{name}</span>
-            </button>
+            <button type="button" className="btn btn__danger" onClick={handleDelete}><MdOutlineDeleteSweep /></button>
           </div>
         </>
       )}
