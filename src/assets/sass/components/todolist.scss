@@ -18,16 +18,13 @@
 			gap: 2rem;
 		}
 
-		// .todo-label {
-		// 	display: flex;
-		// 	gap: 1.25rem;
-		// }
 	}
 
-		.disabled {
-			text-decoration: line-through;
-			color: variables.$orange;
-		}
+	input[type="checkbox"]:checked + .todo-label {
+		color: #c0c0c0;
+		text-decoration: line-through;
+	}
+
 	// 	.edit {
 	// 		display: flex;
 	// 		align-items: center;

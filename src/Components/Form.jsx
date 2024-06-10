@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addTodo, setInputValue } from "../feature/todo.slice";
-import { addListener } from "@reduxjs/toolkit";
+
 
 const Form = ({allTasksCompleted}) => {
 	const dispatch = useDispatch();
@@ -36,7 +36,6 @@ const Form = ({allTasksCompleted}) => {
 				className="input input__lg"
 				name="text"
 				autoComplete="off"
-        disabled={allTasksCompleted} // Désactiver l'entrée si toutes les tâches sont terminées
 			/>
 			<button type="submit" className="btn btn__primary btn__lg">
 				Ajouter
