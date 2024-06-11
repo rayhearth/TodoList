@@ -4,10 +4,14 @@ button {
 	font-weight: bold;
 	border-radius: 1.25rem;
 	display: flex;
-  width: 150px;
-  height: 40px;
-
-	img {
-		height: 1.25rem;
+	width: 150px;
+	height: 40px;
+	transition: all 3s ease-in-out;
+	:hover {
+		background-color: variables.$purple;
 	}
+}
+
+button[aria-pressed="true"] {
+	background-color: variables.$purple;
 }

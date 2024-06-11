@@ -1,6 +1,6 @@
 import React from "react";
 
-const FilterButton = ({ name, setFilter }) => {
+const FilterButton = ({ name, setFilter, isPressed }) => {
 	const handleClick = () => {
 		setFilter(name);
 	};
@@ -9,7 +9,7 @@ const FilterButton = ({ name, setFilter }) => {
 		<button
 			type="button"
 			className="btn toggle-btn"
-			aria-pressed="true"
+			aria-pressed={isPressed}
 			onClick={handleClick}
 		>
 			{name}

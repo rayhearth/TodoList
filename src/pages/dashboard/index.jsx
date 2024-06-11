@@ -45,7 +45,11 @@ const Index = () => {
 	));
 
 	const filterList = FILTER_NAMES.map((name) => (
-		<FilterButton key={name} name={name} setFilter={setFilter} />
+		<FilterButton 
+		key={name} 
+		name={name} 
+		isPressed={name === filter}
+		setFilter={setFilter} />
 	));
 
 	const remainingTasks = tasks.filter((task) => !task.completed).length;
