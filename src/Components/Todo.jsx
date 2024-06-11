@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { toggleTodo, deleteTodo } from "../feature/todo.slice";
+import { toggleTodo, deleteTodo, editTodo } from "../feature/todo.slice";
 import { MdOutlineDeleteSweep } from "react-icons/md";
 import { FiEdit3 } from "react-icons/fi";
 
@@ -53,8 +53,16 @@ const Todo = ({ name, completed, id }) => {
       ) : (
         <>
           <div className="c-cb">
-            <input id={id} type="checkbox" checked={!!completed} onChange={handleStatusChange} />
-            <label className={`todo-label ${completed ? 'completed' : ''}`} htmlFor={id}>
+            <input 
+            id={id} 
+            type="checkbox" 
+            checked={completed} 
+            onChange={handleStatusChange} 
+            />
+            <label 
+            className="todo-label" 
+            htmlFor={id}
+            >
               {name}
             </label>
           </div>
