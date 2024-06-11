@@ -54,15 +54,15 @@ const Todo = ({ name, completed, id }) => {
         <>
           <div className="c-cb">
             <input id={id} type="checkbox" checked={!!completed} onChange={handleStatusChange} />
-            <label className="todo-label" htmlFor={id}>
+            <label className={`todo-label ${completed ? 'completed' : ''}`} htmlFor={id}>
               {name}
             </label>
           </div>
           <div className="btn-group">
             <button type="button" className="btn" onClick={() => setIsEditing(true)}>
-            <FiEdit3 /> <span className="visually-hidden">{name}</span>
+            <FiEdit3 /> edit
             </button>
-            <button type="button" className="btn btn__danger" onClick={handleDelete}><MdOutlineDeleteSweep /></button>
+            <button type="button" className="btn btn__danger" onClick={handleDelete}><MdOutlineDeleteSweep />delete</button>
           </div>
         </>
       )}
