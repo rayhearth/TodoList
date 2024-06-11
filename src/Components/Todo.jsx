@@ -1,44 +1,91 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { cancelTodos, changeTodoStatus } from "../feature/todo.slice";
+import { toggleTodo, deleteTodo, editTodo } from "../feature/todo.slice";
 import { MdOutlineDeleteSweep } from "react-icons/md";
 import { FiEdit3 } from "react-icons/fi";
 
-const Todo = ({ todo, handleEdit }) => {
+const Todo = ({ name, completed, id }) => {
 	const dispatch = useDispatch();
+	const [isEditing, setIsEditing] = useState(false);
+	const [newName, setNewName] = useState(name);
 
-	const handleStatus = () => {
-		dispatch(changeTodoStatus(todo.id));
+	const handleStatusChange = () => {
+		dispatch(toggleTodo(id));
 	};
 
 	const handleDelete = () => {
-		dispatch(cancelTodos(todo.id));
+		dispatch(deleteTodo(id));
+	};
+
+	const handleNameChange = (e) => {
+		setNewName(e.target.value);
+	};
+
+	const handleEditSubmit = (e) => {
+		e.preventDefault();
+		dispatch(editTodo({ id, name: newName }));
+		setIsEditing(false);
 	};
 
 	return (
-		<li className="todo-container">
-				<label
-					htmlFor={todo.id}
-					className={`${todo.status === "complete" ? "disabled" : ""}`}
-				>
-				<input
-					type="checkbox"
-					name={todo.id}
-					checked={todo.status === "complete"}
-					onChange={handleStatus}
-				/>
-					{todo.text}
-				</label>
-			<div className="edit">
-				<button onClick={(e) => handleEdit(todo.id)}>
-					<FiEdit3 />
-				</button>
-				<button onClick={() => handleDelete(todo.id)}>
-					<MdOutlineDeleteSweep />
-				</button>
-			</div>
+		<li className="todo stack-small">
+			{isEditing ? (
+				<form onSubmit={handleEditSubmit}>
+					<div className="c-cb">
+						<input
+							id={id}
+							type="text"
+							value={newName}
+							onChange={handleNameChange}
+							className="input input__lg"
+						/>
+					</div>
+					<div className="btn-group">
+						<button
+							type="button"
+							className="btn"
+							onClick={() => setIsEditing(false)}
+						>
+							Annuler
+						</button>
+						<button type="submit" className="btn btn__primary">
+							Sauvegarder
+						</button>
+					</div>
+				</form>
+			) : (
+				<>
+					<div className="c-cb">
+						<input
+							id={id}
+							type="checkbox"
+							checked={completed}
+							onChange={handleStatusChange}
+              />
+						<label className="todo-label" htmlFor={id}>
+							{name}
+						</label>
+					</div>
+					<div className="btn-group">
+						<button
+							type="button"
+							className="btn"
+							onClick={() => setIsEditing(true)}
+						>
+							<FiEdit3 /> edit
+						</button>
+						<button
+							type="button"
+							className="btn btn__danger"
+							onClick={handleDelete}
+						>
+							<MdOutlineDeleteSweep />
+							delete
+						</button>
+					</div>
+				</>
+			)}
 		</li>
 	);
 };
-
 export default Todo;
