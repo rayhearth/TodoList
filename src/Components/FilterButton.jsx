@@ -1,11 +1,18 @@
 import React from "react";
 
-const FilterButton = () => {
+const FilterButton = ({ name, setFilter }) => {
+	const handleClick = () => {
+		setFilter(name);
+	};
+
 	return (
-		<button type="button" className="btn toggle-btn" aria-pressed="true">
-			<span className="visually-hidden">Montrer </span>
-			<span>Toutes</span>
-			<span className="visually-hidden"> les tâches</span>
+		<button
+			type="button"
+			className="btn toggle-btn"
+			aria-pressed="true"
+			onClick={handleClick}
+		>
+			{name}
 		</button>
 	);
 };
