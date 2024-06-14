@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
-import iconBtn from "../assets/img/icon-btn.svg"
+import { BsCaretRightFill } from "react-icons/bs"
 
 const Login = () => {
 	let navigate = useNavigate();
@@ -45,23 +45,18 @@ const Login = () => {
 						/>
 					</div>
 					<div className="input-wrapper">
-						<label htmlFor="password-connect">password</label>
+						<label htmlFor="password-connect">Password</label>
 						<input type="text" id="password-connect" />
 					</div>
 
-					<div className="input-remember">
-						<label htmlFor="remember-me">Remember me</label>
-						<input
-							type="checkbox"
-							id="remember-me"
-							className="form-check-input"
-							onChange={onChange}
-						/>
+					<div className="input-wrapper">
+						<p>Mot de passe oublié ?</p>
 					</div>
+
 
 					<button type="submit" className="sign-in-btn">
 						<span>Se connecter</span>
-						<img src={iconBtn}/>
+						<BsCaretRightFill />
 					</button>
 
 				</form>
@@ -74,13 +69,23 @@ const Login = () => {
 						<input type="text" id="mail-register" />
 					</div>
 					<div className="input-wrapper">
-						<label htmlFor="password-register">password</label>
+						<label htmlFor="password-register">Password</label>
 						<input type="text" id="password-register" />
 					</div>
 					
+					<div className="input-remember">
+						<label htmlFor="remember-me">Remember me</label>
+						<input
+							type="checkbox"
+							id="remember-me"
+							className="form-check-input"
+							onChange={onChange}
+						/>
+					</div>
+
 					<button type="submit" className="sign-up-btn">
 					<span>S'inscrire</span>
-					<img src={iconBtn}/>
+					<BsCaretRightFill />
 					</button>
 				</form>
 			</div>
