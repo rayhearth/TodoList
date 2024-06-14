@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
+import iconBtn from "../assets/img/icon-btn.svg"
 
 const Login = () => {
 	let navigate = useNavigate();
@@ -34,7 +35,7 @@ const Login = () => {
 				<h2> Connexion </h2>
 				<form onSubmit={onSubmit}>
 					<div className="input-wrapper">
-						<label htmlFor="mail-connect">Email address</label>
+						<label htmlFor="mail-connect">e-mail address</label>
 						<input
 							type="text"
 							name="mail-connect"
@@ -58,8 +59,9 @@ const Login = () => {
 						/>
 					</div>
 
-					<button type="submit" className="sign-in-button">
-						Se connecter
+					<button type="submit" className="sign-in-btn">
+						<span>Se connecter</span>
+						<img src={iconBtn}/>
 					</button>
 
 				</form>
@@ -75,9 +77,10 @@ const Login = () => {
 						<label htmlFor="password-register">password</label>
 						<input type="text" id="password-register" />
 					</div>
-
-					<button type="submit" className="sign-in-button">
-						S'inscrire
+					
+					<button type="submit" className="sign-up-btn">
+					<span>S'inscrire</span>
+					<img src={iconBtn}/>
 					</button>
 				</form>
 			</div>

@@ -1,17 +1,31 @@
 button {
-	background-color: variables.$orange;
-	color: variables.$cream;
+	cursor: pointer;
+	display: flex;
+	place-items: center;
+	gap: 1rem;
+	padding: 0 2rem;
+	border: none;
 	font-weight: bold;
 	border-radius: 1.25rem;
-	display: flex;
-	width: 150px;
+	width: 14rem;
 	height: 40px;
-	transition: all 3s ease-in-out;
-	:hover {
+	transition: all .3s ease-in-out;
+	span{
+		flex-shrink: 0;
+	}
+	&:hover {
 		background-color: variables.$purple;
 	}
 }
 
 button[aria-pressed="true"] {
 	background-color: variables.$purple;
+}
+
+.sign-in-btn{
+	background-color: variables.$orange;
+}
+
+.sign-up-btn{
+	background-color: variables.$cream;
 }

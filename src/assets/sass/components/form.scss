@@ -1,6 +1,6 @@
 form{
-  background-color: variables.$purple;
-  input{
-    background-color: variables.$green;
-  }
+
+@include mixin.formBackground("sign-in",variables.$orange, variables.$cream);
+@include mixin.formBackground("sign-up",variables.$cream, variables.$orange)
+  
 }

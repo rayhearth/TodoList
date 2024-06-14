@@ -72,19 +72,3 @@ select:disabled {
   cursor: not-allowed; /* Curseur non autorisé */
   opacity: 0.5; /* Réduire l'opacité */
 }
-
-button {
-	cursor: pointer;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	background-color: transparent;
-	color: variables.$dark;
-	border: none;
-	justify-content: center;
-	gap: 0.25rem;
-	font-size: 1.25rem;
-	font-weight: 400;
-	height: 100%;
-	transition: background-color 0.5s ease-in-out;
-}

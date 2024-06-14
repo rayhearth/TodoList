@@ -7,12 +7,30 @@
   background-color: variables.$orange;
   h2{
     text-align: left;
+    padding:2rem 2.25rem 3.25rem 2.25rem;
+  }
+  form{
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    padding:0 2.25rem;
+
+  }
+  .input-wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .input-remember{
+    input[type="checkbox"]{
+      background-color: variables.$cream;
+      border: 1px solid variables.$orange;
+      border-radius: 50%;
+    }
   }
 }
 
-form{
-  padding: 2.25rem 0;
-}
 
 
 .sign-in{
@@ -40,12 +58,12 @@ input{
 }
 }
 
-input[type='checkbox']{
-  background-color: variables.$cream;
-  border: 1px solid variables.$orange;
-}
+// input[type='checkbox']{
+//   background-color: variables.$cream;
+//   border: 1px solid variables.$orange;
+// }
 
-input:checked{
-  border: none;
-  outline: 2px solid variables.$orange
-}
+// input:checked{
+//   border: none;
+//   outline: 2px solid variables.$orange
+// }

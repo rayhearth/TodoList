@@ -1,0 +1,19 @@
+@use 'variables' as *;
+
+@mixin formBackground($class-name, $form-bg-color, $input-bg-color) {
+  .#{$class-name} {
+    background-color: $form-bg-color;
+
+    @if $form-bg-color == $orange {
+      input {
+        background-color: $input-bg-color;
+      }
+    }
+
+    @if $form-bg-color == $cream {
+      input {
+        background-color: $input-bg-color;
+      }
+    }
+  }
+}
