@@ -32,7 +32,7 @@ const Login = () => {
 	return (
 		<section className="login">
 			<div className="sign-in">
-				<h2> Connexion </h2>
+				<h2> Sign in </h2>
 				<form onSubmit={onSubmit}>
 					<div className="input-wrapper">
 						<label htmlFor="mail-connect">e-mail address</label>
@@ -62,7 +62,7 @@ const Login = () => {
 				</form>
 			</div>
 			<div className="sign-up">
-				<h2> Créer mon compte </h2>
+				<h2> Sign up </h2>
 				<form action="">
 					<div className="input-wrapper">
 						<label htmlFor="mail-register">Email address</label>

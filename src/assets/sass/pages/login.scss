@@ -8,19 +8,23 @@
   background-color: variables.$orange;
   h2{
     text-align: left;
-    //padding:2rem 2.25rem 3.25rem 2.25rem;
   }
   form{
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
     padding:0 2.25rem;
-
+    @media screen and (max-width: 425px){
+      padding: inherit;
+    }
   }
   .input-wrapper{
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
+    p{
+      color: #6E6A7C;
+    }
     input{
       max-width: 22rem;
     }
@@ -55,6 +59,9 @@
     z-index: 10;
     transform: translateY(99%);
   }
+  h2{
+    padding:0 0 25px 0;
+  }
   input{ 
     background-color: variables.$orange;
   }
@@ -63,17 +70,11 @@
 
 .sign-up{
 
+  h2{
+    text-align: right;
+    padding: 25px;
+  }
 input{
   background-color: variables.$cream;
 }
 }
-
-// input[type='checkbox']{
-//   background-color: variables.$cream;
-//   border: 1px solid variables.$orange;
-// }
-
-// input:checked{
-//   border: none;
-//   outline: 2px solid variables.$orange
-// }
