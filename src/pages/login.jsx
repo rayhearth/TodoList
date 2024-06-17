@@ -46,7 +46,7 @@ const Login = () => {
 	return (
 		<section className="login">
 			<div className="sign-in">
-				<h2> Sign in </h2>
+				<h2> Sign In </h2>
 				<form onSubmit={onSubmit}>
 					<div className="input-wrapper">
 						<label htmlFor="mail-connect">e-mail address</label>
@@ -80,7 +80,7 @@ const Login = () => {
 				</form>
 			</div>
 			<div className="sign-up">
-				<h2> Sign up </h2>
+				<h2> Sign Up </h2>
 				<form onSubmit={onSubmit}>
 					<div className="input-wrapper">
 						<label htmlFor="mail-register">Email address</label>
@@ -104,10 +104,7 @@ const Login = () => {
 					</div>
 
 					<div className="input-remember">
-						<label
-							htmlFor="remember-me"
-							style={{ display: "flex", alignItems: "center" }}
-						>
+						<label htmlFor="remember-me">
 							Remember me
 							{credentials.remember ? (
 								<IoIosCheckmarkCircleOutline />

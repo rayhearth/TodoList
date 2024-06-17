@@ -18,6 +18,12 @@
 		@media screen and (max-width: 425px) {
 			padding: inherit;
 		}
+    button{
+      align-self: flex-end;
+      @media screen and (max-width: 425px) {
+        align-self: flex-end;
+      }
+    }
 	}
 	.input-wrapper {
 		display: flex;
@@ -77,6 +83,12 @@
   .input-remember{
     display: flex;
     align-items: center;
+    label{
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      color: variables.$cream;
+    }
   }
 }
 
