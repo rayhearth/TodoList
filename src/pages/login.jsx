@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
-import { BsCaretRightFill } from "react-icons/bs"
+import { BsCaretRightFill } from "react-icons/bs";
+import { IoIosCheckmarkCircleOutline } from "react-icons/io";
+import { MdOutlineRadioButtonUnchecked } from "react-icons/md";
+import { useDispatch } from "react-redux";
 
 const Login = () => {
 	let navigate = useNavigate();
+	const dispatch = useDispatch();
 
 	const [credentials, setCredentials] = useState({
 		email: "dead@pool.com",
@@ -12,9 +16,10 @@ const Login = () => {
 	});
 
 	const onChange = (e) => {
+		const { name, value, type, checked } = e.target;
 		setCredentials({
 			...credentials,
-			[e.target.name]: e.target.value,
+			[name]: type === "checkbox" ? checked : value,
 		});
 	};
 
@@ -24,6 +29,15 @@ const Login = () => {
 				.userLogin(credentials)
 				.then((res) => {
 					accountServices.saveToken(res.body.token);
+					dispatch(
+						isConnected({
+							isAuthentificated: true,
+							email: credentials.email,
+							firstname: res.body.firstname,
+							lastname: res.body.lastname,
+							token: res.body.token,
+						})
+					);
 					navigate("/dashboard");
 				})
 				.catch((error) => console.log(error));
@@ -46,46 +60,75 @@ const Login = () => {
 					</div>
 					<div className="input-wrapper">
 						<label htmlFor="password-connect">Password</label>
-						<input type="text" id="password-connect" />
+						<input
+							type="password"
+							name="password"
+							value={credentials.password}
+							onChange={onChange}
+							id="password-connect"
+						/>
 					</div>
 
 					<div className="input-wrapper">
 						<p>Mot de passe oublié ?</p>
 					</div>
 
-
 					<button type="submit" className="sign-in-btn">
 						<span>Se connecter</span>
 						<BsCaretRightFill />
 					</button>
-
 				</form>
 			</div>
 			<div className="sign-up">
 				<h2> Sign up </h2>
-				<form action="">
+				<form onSubmit={onSubmit}>
 					<div className="input-wrapper">
 						<label htmlFor="mail-register">Email address</label>
-						<input type="text" id="mail-register" />
+						<input
+							type="text"
+							name="email"
+							value={credentials.email}
+							onChange={onChange}
+							id="mail-register"
+						/>
 					</div>
 					<div className="input-wrapper">
 						<label htmlFor="password-register">Password</label>
-						<input type="text" id="password-register" />
+						<input
+							type="password"
+							name="password"
+							value={credentials.password}
+							onChange={onChange}
+							id="password-register"
+						/>
 					</div>
-					
+
 					<div className="input-remember">
-						<label htmlFor="remember-me">Remember me</label>
+						<label
+							htmlFor="remember-me"
+							style={{ display: "flex", alignItems: "center" }}
+						>
+							Remember me
+							{credentials.remember ? (
+								<IoIosCheckmarkCircleOutline />
+							) : (
+								<MdOutlineRadioButtonUnchecked />
+							)}
+						</label>
 						<input
 							type="checkbox"
+							name="remember"
 							id="remember-me"
 							className="form-check-input"
 							onChange={onChange}
+							checked={credentials.remember}
+							style={{ display: "none" }}
 						/>
 					</div>
 
 					<button type="submit" className="sign-up-btn">
-					<span>S'inscrire</span>
-					<BsCaretRightFill />
+						<span>S'inscrire</span>
+						<BsCaretRightFill />
 					</button>
 				</form>
 			</div>
