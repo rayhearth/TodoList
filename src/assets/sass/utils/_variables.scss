@@ -6,3 +6,33 @@ $purple: #CAB8FF;
 $darkpurple: #5326D7;
 $blue : #A8CFC7;
 $grey : #6E6A7C;
+
+//Animation
+// @keyframes background-in {
+//   from {
+//       background-color: rgba($lightgray, 0);
+//   }
+//   to {
+//       background-color: rgba($lightgray, 0.4);
+//   }
+// }
+
+@keyframes content-in {
+  from {
+      transform: translateY(2rem) scale(0.8);
+  }
+  to {
+      transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes userAppear {
+  from {
+      opacity: 0;
+      transform: translate(1rem, 1rem);
+  }
+  to {
+      opacity: 1;
+      transform: translate(0, 0);
+  }
+}

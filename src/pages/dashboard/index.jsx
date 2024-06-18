@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addTodo, setInputValue } from "../../feature/todo.slice";
-import Todo from "../../Components/Todo";
+import UserCard from "../../Components/UserCard";
 import Form from "../../Components/Form";
 import FilterButton from "../../Components/FilterButton";
+import Todo from "../../Components/Todo";
 
 const FILTER_MAP = {
 	All: () => true,
@@ -45,36 +46,40 @@ const Index = () => {
 	));
 
 	const filterList = FILTER_NAMES.map((name) => (
-		<FilterButton 
-		key={name} 
-		name={name} 
-		isPressed={name === filter}
-		setFilter={setFilter} />
+		<FilterButton
+			key={name}
+			name={name}
+			isPressed={name === filter}
+			setFilter={setFilter}
+		/>
 	));
 
 	const remainingTasks = tasks.filter((task) => !task.completed).length;
 
 	return (
-		<div className="todoapp stack-large">
-			<h1>TodoMatic</h1>
-			<Form
-				handleAddTodo={handleAddTodo}
-				inputValue={inputValue}
-				setInputValue={(value) => dispatch(setInputValue(value))}
-			/>
-			<div className="filters btn-group stack-exception">{filterList}</div>
-			<h2 id="list-heading">
-				{remainingTasks}{" "}
-				{remainingTasks === 1 ? "tâche restante" : "tâches restantes"}
-			</h2>
-			<ul
-				role="list"
-				className="todo-list stack-large stack-exception"
-				aria-labelledby="list-heading"
-			>
-				{taskList}
-			</ul>
-			{allTasksCompleted && <p>Toutes les tâches sont terminées!</p>}
+		<div className="dashboard">
+				<UserCard />
+			<div className="todoapp stack-large">
+				<h1>Mes Tâches</h1>
+				<Form
+					handleAddTodo={handleAddTodo}
+					inputValue={inputValue}
+					setInputValue={(value) => dispatch(setInputValue(value))}
+				/>
+				<div className="filters btn-group stack-exception">{filterList}</div>
+				<h2 id="list-heading">
+					{remainingTasks}{" "}
+					{remainingTasks === 1 ? "tâche restante" : "tâches restantes"}
+				</h2>
+				<ul
+					role="list"
+					className="todo-list stack-large stack-exception"
+					aria-labelledby="list-heading"
+				>
+					{taskList}
+				</ul>
+				{allTasksCompleted && <p>Toutes les tâches sont terminées!</p>}
+			</div>
 		</div>
 	);
 };

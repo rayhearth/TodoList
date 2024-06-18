@@ -4,6 +4,8 @@ import { BsCaretRightFill } from "react-icons/bs";
 import { IoIosCheckmarkCircleOutline } from "react-icons/io";
 import { MdOutlineRadioButtonUnchecked } from "react-icons/md";
 import { useDispatch } from "react-redux";
+import { isConnected } from "../feature/user.slice";
+import user_img from "../assets/img/user.png"
 
 const Login = () => {
 	let navigate = useNavigate();
@@ -24,24 +26,50 @@ const Login = () => {
 	};
 
 	const onSubmit = (e) => {
-		e.preventDefault,
-			dataServices
-				.userLogin(credentials)
-				.then((res) => {
-					accountServices.saveToken(res.body.token);
-					dispatch(
-						isConnected({
-							isAuthentificated: true,
-							email: credentials.email,
-							firstname: res.body.firstname,
-							lastname: res.body.lastname,
-							token: res.body.token,
-						})
-					);
-					navigate("/dashboard");
-				})
-				.catch((error) => console.log(error));
-	};
+    e.preventDefault();
+    // Simuler une réponse API
+    const simulatedResponse = {
+      body: {
+        token: "fake-jwt-token",
+        firstName: "Jane",
+        lastName: "Doe",
+				photo:{user_img},
+      },
+    };
+
+    // Simuler le stockage du token et la mise à jour du store
+    dispatch(
+      isConnected({
+        isAuthentificated: true,
+        email: credentials.email,
+        firstName: simulatedResponse.body.firstName,
+        lastName: simulatedResponse.body.lastName,
+        token: simulatedResponse.body.token,
+      })
+    );
+    navigate("/dashboard");
+  };
+
+	//Code initial avec un api
+	// const onSubmit = (e) => {
+	// 	e.preventDefault,
+	// 		dataServices
+	// 			.userLogin(credentials)
+	// 			.then((res) => {
+	// 				accountServices.saveToken(res.body.token);
+	// 				dispatch(
+	// 					isConnected({
+	// 						isAuthentificated: true,
+	// 						email: credentials.email,
+	// 						firstname: res.body.firstname,
+	// 						lastname: res.body.lastname,
+	// 						token: res.body.token,
+	// 					})
+	// 				);
+	// 				navigate("/dashboard");
+	// 			})
+	// 			.catch((error) => console.log(error));
+	// };
 
 	return (
 		<section className="login">

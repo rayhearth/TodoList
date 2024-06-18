@@ -1,8 +1,9 @@
 import { Navigate } from 'react-router-dom'
-import { accountServices } from '@/_services/Account.services';
+import { useSelector } from 'react-redux';
 
 const AuthGuard = ({ children }) => {
 
+    const isAuthentificated = useSelector(state => state.auth.isAuthentificated)
 
     if (!accountServices.isLogged()) {
         return <Navigate to='/login' />

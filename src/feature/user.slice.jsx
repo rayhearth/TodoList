@@ -8,6 +8,7 @@ export const usersSlice = createSlice({
     email: '',
     firstName: '',
     lastName: '',
+    photo: '',
     token: '',
   },
   reducers: {
@@ -16,15 +17,19 @@ export const usersSlice = createSlice({
       state.email = payload.email;
       state.firstName = payload.firstName;
       state.lastName = payload.lastName;
+      state.photo = payload.photo
       state.token = payload.token
     },
     updateData: (state, { payload }) => {
       state.firstName = payload.firstName;
       state.lastName = payload.lastName;
     },
-    cancel: (state, { payload }) => {
+    cancel: (state) => {
+      state.isAuthentificated = false
       state.firstName = ' ';
       state.lastName = ' ';
+      state.photo = ' ';
+      state.token = ' ';
     }
   }
 })

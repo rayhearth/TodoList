@@ -1,0 +1,9 @@
+.profile {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	height: 120px;
+	padding: 0 35px;
+  animation: userAppear 1s ease-in-out;
+}
