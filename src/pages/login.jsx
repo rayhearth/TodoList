@@ -33,7 +33,7 @@ const Login = () => {
         token: "fake-jwt-token",
         firstName: "Jane",
         lastName: "Doe",
-				photo:{user_img},
+				photoUrl: "https://example.com/user.jpg"
       },
     };
 
@@ -44,6 +44,7 @@ const Login = () => {
         email: credentials.email,
         firstName: simulatedResponse.body.firstName,
         lastName: simulatedResponse.body.lastName,
+				photoUrl: simulatedResponse.body.photoUrl,
         token: simulatedResponse.body.token,
       })
     );
