@@ -1,11 +1,17 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router";
 import { HiOutlineMenuAlt2 } from "react-icons/hi";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate()
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
+  };
+
+  const handleLoginClick = () => {
+    navigate("/login");
   };
 
   return (
@@ -20,7 +26,7 @@ const Navbar = () => {
               <span className="icon">
                 <i className="fas fa-candy-cane"></i>
               </span>
-              <span className="title">Login</span>
+              <span className="title" onClick={handleLoginClick}>Login</span>
             </a>
           </li>
           <li>
