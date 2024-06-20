@@ -13,7 +13,7 @@ export const usersSlice = createSlice({
   },
   reducers: {
     isConnected: (state, { payload }) => {
-      state.isAuthentificated = true;
+      state.isAuthentificated = payload.isAuthentificated;
       state.email = payload.email;
       state.firstName = payload.firstName;
       state.lastName = payload.lastName;

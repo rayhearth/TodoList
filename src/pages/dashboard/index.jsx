@@ -5,6 +5,7 @@ import UserCard from "../../Components/UserCard";
 import Form from "../../Components/Form";
 import FilterButton from "../../Components/FilterButton";
 import Todo from "../../Components/Todo";
+import Navbar from "../../Components/Navbar";
 
 const FILTER_MAP = {
 	All: () => true,
@@ -58,7 +59,10 @@ const Index = () => {
 
 	return (
 		<div className="dashboard">
+			<header>
+				<Navbar />
 				<UserCard />
+			</header>
 			<div className="todoapp stack-large">
 				<h1>Mes Tâches</h1>
 				<Form

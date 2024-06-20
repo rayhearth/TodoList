@@ -5,7 +5,6 @@ import { IoIosCheckmarkCircleOutline } from "react-icons/io";
 import { MdOutlineRadioButtonUnchecked } from "react-icons/md";
 import { useDispatch } from "react-redux";
 import { isConnected } from "../feature/user.slice";
-import user_img from "../assets/img/user.png"
 
 const Login = () => {
 	let navigate = useNavigate();
@@ -26,30 +25,30 @@ const Login = () => {
 	};
 
 	const onSubmit = (e) => {
-    e.preventDefault();
-    // Simuler une réponse API
-    const simulatedResponse = {
-      body: {
-        token: "fake-jwt-token",
-        firstName: "Jane",
-        lastName: "Doe",
-				photoUrl: "https://example.com/user.jpg"
-      },
-    };
+		e.preventDefault();
+		// Simuler une réponse API
+		const simulatedResponse = {
+			body: {
+				token: "fake-jwt-token",
+				firstName: "Jane",
+				lastName: "Doe",
+				photoUrl: "../assets/img/user.png",
+			},
+		};
 
-    // Simuler le stockage du token et la mise à jour du store
-    dispatch(
-      isConnected({
-        isAuthentificated: true,
-        email: credentials.email,
-        firstName: simulatedResponse.body.firstName,
-        lastName: simulatedResponse.body.lastName,
+		// Simuler le stockage du token et la mise à jour du store
+		dispatch(
+			isConnected({
+				isAuthentificated: true,
+				email: credentials.email,
+				firstName: simulatedResponse.body.firstName,
+				lastName: simulatedResponse.body.lastName,
 				photoUrl: simulatedResponse.body.photoUrl,
-        token: simulatedResponse.body.token,
-      })
-    );
-    navigate("/dashboard");
-  };
+				token: simulatedResponse.body.token,
+			})
+		);
+		navigate("/dashboard");
+	};
 
 	//Code initial avec un api
 	// const onSubmit = (e) => {

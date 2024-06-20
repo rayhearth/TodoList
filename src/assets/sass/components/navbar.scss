@@ -1,0 +1,68 @@
+
+
+.navigation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  align-items: baseline;
+  width: 60px;
+  height: 60px;
+  transition: all 0.35s ease;
+}
+
+.navigation.open {
+  width: 100%;
+  height: fit-content;
+  z-index: 12;
+  background-color: variables.$orange;
+}
+
+.toggle {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  cursor: pointer;
+  color: variables.$dark;
+  z-index: 2;
+}
+
+.navigation.open .toggle {
+  color: variables.$cream;
+}
+
+.menu {
+  opacity: 0;
+  transition: opacity 0.35s ease-in-out, transform 0.35s ease-in-out;
+  transform: translateY(-100%);
+}
+
+.navigation.open .menu {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.menu ul {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  gap: 1.25rem;
+  padding: 3rem 0.75rem;
+}
+
+.menu ul a {
+  color: variables.$cream;
+}
+
+.menu .icon {
+  margin-right: 10px;
+}
+
+.menu .title {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.navigation.open .title {
+  opacity: 1;
+}
