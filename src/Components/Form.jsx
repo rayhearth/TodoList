@@ -1,32 +1,26 @@
 import React from "react";
+import { IoMdAddCircleOutline } from "react-icons/io";
 
-
-const Form = ({handleAddTodo, inputValue, setInputValue}) => {
-	
-
+const Form = ({ handleAddTodo, inputValue, setInputValue }) => {
 	const handleChange = (e) => {
+		console.log("say hello");
 		setInputValue(e.target.value);
 	};
 
-
 	return (
-		<form onSubmit={handleAddTodo}>
-			<h2 className="label-wrapper">
-				<label htmlFor="new-todo-input" className="label__lg">
-					Qu'y a-t-il à faire&nbsp;?
-				</label>
-			</h2>
+		<form className="task" onSubmit={handleAddTodo}>
+			<label htmlFor="new-todo-input" className="label__lg"></label>
 			<input
 				type="text"
 				id="new-todo-input"
 				className="input input__lg"
 				name="text"
 				autoComplete="off"
-				value= {inputValue}
+				value={inputValue}
 				onChange={handleChange}
 			/>
-			<button type="submit" className="btn btn__primary btn__lg">
-				Ajouter
+			<button type="button" className="btn" onClick={handleChange}>
+				<IoMdAddCircleOutline />
 			</button>
 		</form>
 	);

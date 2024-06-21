@@ -4,7 +4,20 @@
 	gap:2rem;
 	padding: 2rem;
 }
+.task{
+		align-items: center;
+		padding: 1.25rem;
+		gap: 1.25rem;
+		background-color: variables.$blue;
+		border-radius: 25px 0 25px 0;
+		input{
+			border-radius: 25px;
+			padding: 0.5rem ;
+			background-color: variables.$cream;
+			min-width: 18.75rem;
+		}
 
+}
 .todo-list {
 	display: flex;
 	flex-direction: column;

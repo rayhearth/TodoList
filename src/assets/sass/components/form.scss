@@ -1,6 +1,5 @@
-form{
-
-@include mixin.formBackground("sign-in",variables.$orange, variables.$cream);
-@include mixin.formBackground("sign-up",variables.$cream, variables.$orange)
-  
+form {
+	display: flex;
+	flex-direction: column;
+	gap: 1.25rem;
 }

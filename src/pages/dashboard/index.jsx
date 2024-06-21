@@ -66,6 +66,7 @@ const Index = () => {
 			<div className="todoapp stack-large">
 				<h1>Mes Tâches</h1>
 				<Form
+				
 					handleAddTodo={handleAddTodo}
 					inputValue={inputValue}
 					setInputValue={(value) => dispatch(setInputValue(value))}
