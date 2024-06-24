@@ -3,25 +3,34 @@ import { IoMdAddCircleOutline } from "react-icons/io";
 
 const Form = ({ handleAddTodo, inputValue, setInputValue }) => {
 	const handleChange = (e) => {
-		console.log("say hello");
 		setInputValue(e.target.value);
+	};
+
+	const handleAddButtonClick = () => {
+		handleAddTodo({ preventDefault: () => {} });
 	};
 
 	return (
 		<form className="task" onSubmit={handleAddTodo}>
-			<label htmlFor="new-todo-input" className="label__lg"></label>
-			<input
-				type="text"
-				id="new-todo-input"
-				className="input input__lg"
-				name="text"
-				autoComplete="off"
-				value={inputValue}
-				onChange={handleChange}
-			/>
-			<button type="button" className="btn" onClick={handleChange}>
-				<IoMdAddCircleOutline />
-			</button>
+			<div className="input-wrapper">
+				<button
+					type="button"
+					className="btn add-btn"
+					onClick={handleAddButtonClick}
+				>
+					<IoMdAddCircleOutline />
+				</button>
+				<input
+					type="text"
+					id="new-todo-input"
+					className="input input__lg"
+					name="text"
+					placeholder="Ajouter une nouvelle tâche"
+					autoComplete="off"
+					value={inputValue}
+					onChange={handleChange}
+				/>
+			</div>
 		</form>
 	);
 };

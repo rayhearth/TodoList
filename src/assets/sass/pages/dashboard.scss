@@ -1,22 +1,26 @@
-.filters{
+.filters {
 	display: flex;
 	justify-content: center;
-	gap:2rem;
+	gap: 2rem;
 	padding: 2rem;
 }
-.task{
-		align-items: center;
-		padding: 1.25rem;
-		gap: 1.25rem;
-		background-color: variables.$blue;
-		border-radius: 25px 0 25px 0;
-		input{
-			border-radius: 25px;
-			padding: 0.5rem ;
-			background-color: variables.$cream;
-			min-width: 18.75rem;
-		}
-
+.task {
+	align-items: center;
+	padding: 1.25rem;
+	gap: 1.25rem;
+	background-color: variables.$blue;
+	border-radius: 25px 0 25px 0;
+}
+.input-wrapper {
+	border-radius: 25px;
+	background-color: variables.$cream;
+	min-width: 18.75rem;
+	padding: 0.25rem;
+}
+input {
+	flex-grow: 1;
+	padding: 0.5rem 1rem;
+	border-radius: 0.25rem;
 }
 .todo-list {
 	display: flex;
