@@ -1,3 +1,9 @@
+.dashboard {
+	background-color: variables.$orange;
+}
+.todoapp {
+	padding: 1.25rem;
+}
 .filters {
 	display: flex;
 	justify-content: center;
@@ -8,7 +14,7 @@
 	align-items: center;
 	padding: 1.25rem;
 	gap: 1.25rem;
-	background-color: variables.$blue;
+	// background-color: variables.$blue;
 	border-radius: 25px 0 25px 0;
 }
 .input-wrapper {
