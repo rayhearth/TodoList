@@ -1,51 +1,59 @@
-	.todo {
+.todo {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1.25rem;
+	padding: 1.25rem;
+	position: relative;
+	background-color: variables.$cream;
+	border-radius: 1.5rem;
+	.c-cb {
 		display: flex;
 		align-items: center;
-		justify-content: space-between;
-		gap: 1.25rem;
-		padding: 1.25rem;
-		position: relative;
-		background-color: variables.$cream;
-		border-radius: 1.5rem;
-		.c-cb{
-			display: flex;
-			align-items: center;
-			gap: 2rem;
-		}
-		.btn-group{
-			display: flex;
-			align-items: center;
-			gap: 2rem;
-		}
-
+		gap: 2rem;
 	}
-
-	input[type="checkbox"]:checked + .todo-label {
-		color: #c0c0c0;
-		text-decoration: line-through;
+	.btn-group {
+		display: flex;
+		align-items: center;
+		gap: 2rem;
 	}
+}
 
-	// 	.edit {
-	// 		display: flex;
-	// 		align-items: center;
-	// 		gap: 1rem;
-	// 	}
+.editing{
+	display: flex;
+	flex-direction: row;
+	input{
+		border: 1px solid grey;
+		border-radius: 15px;
+	}
+}
 
-	// 	&::before {
-	// 		content: "";
-	// 		position: absolute;
-	// 		bottom: 1px;
-	// 		height: 1px;
-	// 		background-color: variables.$orange;
-	// 		width: 95%;
-	// 		@media screen and (min-width: 1440px) {
-	// 			width: 97%;
-	// 		}
-	// 		@media screen and (max-width: 425px) {
-	// 			width: 90%;
-	// 		}
-	// 	}
-	// }
+input[type="checkbox"]:checked + .todo-label {
+	color: #c0c0c0;
+	text-decoration: line-through;
+}
+
+// 	.edit {
+// 		display: flex;
+// 		align-items: center;
+// 		gap: 1rem;
+// 	}
+
+// 	&::before {
+// 		content: "";
+// 		position: absolute;
+// 		bottom: 1px;
+// 		height: 1px;
+// 		background-color: variables.$orange;
+// 		width: 95%;
+// 		@media screen and (min-width: 1440px) {
+// 			width: 97%;
+// 		}
+// 		@media screen and (max-width: 425px) {
+// 			width: 90%;
+// 		}
+// 	}
+// }
 
 // input[type="checkbox"] {
 // 	-webkit-appearance: none;

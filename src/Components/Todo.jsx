@@ -30,7 +30,7 @@ const Todo = ({ name, completed, id }) => {
 	return (
 		<li className="todo stack-small">
 			{isEditing ? (
-				<form onSubmit={handleEditSubmit}>
+				<form onSubmit={handleEditSubmit} className="editing">
 					<div className="c-cb">
 						<input
 							id={id}
