@@ -15,7 +15,7 @@ const Form = ({ handleAddTodo, inputValue, setInputValue }) => {
 			<div className="input-wrapper">
 				<button
 					type="button"
-					className="btn add-btn"
+					className="btn small-btn"
 					onClick={handleAddButtonClick}
 				>
 					<IoMdAddCircleOutline />

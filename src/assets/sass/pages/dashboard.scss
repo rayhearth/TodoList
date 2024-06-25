@@ -33,7 +33,9 @@ input {
 	flex-direction: column;
 	gap: 2rem;
 	padding: 2rem;
-	margin: 2rem;
 	border-radius: 25px 0 25px 0;
 	background-color: variables.$blue;
+	@media screen and (max-width: 425px) {
+		padding: 1rem;
+	}
 }

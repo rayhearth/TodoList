@@ -61,7 +61,7 @@ const Todo = ({ name, completed, id }) => {
 							type="checkbox"
 							checked={completed}
 							onChange={handleStatusChange}
-              />
+						/>
 						<label className="todo-label" htmlFor={id}>
 							{name}
 						</label>
@@ -69,18 +69,17 @@ const Todo = ({ name, completed, id }) => {
 					<div className="btn-group">
 						<button
 							type="button"
-							className="btn"
+							className="btn small-btn"
 							onClick={() => setIsEditing(true)}
 						>
-							<FiEdit3 /> edit
+							<FiEdit3 />
 						</button>
 						<button
 							type="button"
-							className="btn btn__danger"
+							className="btn small-btn btn__danger"
 							onClick={handleDelete}
 						>
 							<MdOutlineDeleteSweep />
-							delete
 						</button>
 					</div>
 				</>
