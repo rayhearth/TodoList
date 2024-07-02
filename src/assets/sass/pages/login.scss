@@ -15,12 +15,12 @@
 		@media screen and (max-width: 425px) {
 			padding: inherit;
 		}
-    button{
-      align-self: flex-end;
-      @media screen and (max-width: 425px) {
-        align-self: flex-end;
-      }
-    }
+		button {
+			align-self: flex-end;
+			@media screen and (max-width: 425px) {
+				align-self: flex-end;
+			}
+		}
 	}
 	.input-wrapper {
 		display: flex;
@@ -50,7 +50,7 @@
 
 .sign-in {
 	background-color: variables.$cream;
-	border-bottom-left-radius: 100px;
+	border-bottom-left-radius: 6.25rem;
 	position: relative;
 	&::after {
 		content: url("../img/corner-rigth-top.svg");
@@ -62,7 +62,7 @@
 		transform: translateY(99%);
 	}
 	h2 {
-		padding: 0 0 25px 0;
+		padding: 0 0 1.563rem 0;
 	}
 	input {
 		background-color: variables.$orange;
@@ -72,21 +72,19 @@
 .sign-up {
 	h2 {
 		text-align: right;
-		padding: 25px;
+		padding-right: 5%;
 	}
 	input {
 		background-color: variables.$cream;
 	}
-  .input-remember{
-    display: flex;
-    align-items: center;
-    label{
-      display: flex;
-      align-items: center;
-      gap: 1.25rem;
-      color: variables.$cream;
-    }
-  }
+	.input-remember {
+		display: flex;
+		align-items: center;
+		label {
+			display: flex;
+			align-items: center;
+			gap: 1.25rem;
+			color: variables.$cream;
+		}
+	}
 }
-
-
