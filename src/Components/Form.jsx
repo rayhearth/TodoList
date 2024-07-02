@@ -12,7 +12,7 @@ const Form = ({ handleAddTodo, inputValue, setInputValue }) => {
 
 	return (
 		<form className="task" onSubmit={handleAddTodo}>
-			<div className="input-wrapper">
+			<div className="input-wrapper add-task">
 				<button
 					type="button"
 					className="btn small-btn"

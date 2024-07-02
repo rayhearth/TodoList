@@ -20,9 +20,12 @@
 }
 .input-wrapper {
 	border-radius: 25px;
-	background-color: variables.$cream;
 	min-width: 18.75rem;
 	padding: 0.25rem;
+}
+
+.add-task {
+	background-color: variables.$cream;
 }
 input {
 	flex-grow: 1;
