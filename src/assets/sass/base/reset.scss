@@ -11,8 +11,8 @@
 }
 
 #root {
-	display: flex;
-	flex-direction: column;
+	display:grid;
+	//max-width: 960px;
 	min-height: 100vh;
 }
 

@@ -58,7 +58,7 @@ const Index = () => {
 	const remainingTasks = tasks.filter((task) => !task.completed).length;
 
 	return (
-		<div className="dashboard">
+		<section className="dashboard">
 			<header>
 				<Navbar />
 				<UserCard />
@@ -85,7 +85,7 @@ const Index = () => {
 				</ul>
 				{allTasksCompleted && <p>Toutes les tâches sont terminées!</p>}
 			</div>
-		</div>
+		</section>
 	);
 };
 
