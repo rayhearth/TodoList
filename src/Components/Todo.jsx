@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { toggleTodo, deleteTodo, editTodo } from "../feature/todo.slice";
 import { MdOutlineDeleteSweep } from "react-icons/md";
+import useOutsideClick from "../hooks/useOutsideClick";
 
 const Todo = ({ name, completed, id }) => {
   const dispatch = useDispatch();
@@ -21,70 +22,72 @@ const Todo = ({ name, completed, id }) => {
     setNewName(e.target.value);
   };
 
-  const handleEditSubmit = () => {
+  const handleEditSubmit = (e) => {
+    e.preventDefault();
     if (newName.trim() !== "") {
       dispatch(editTodo({ id, name: newName }));
+    } else {
+      setNewName(name);
     }
     setIsEditing(false);
   };
 
-  // Function to handle outside click or touch
-  const handleClickOutside = (e) => {
-    if (inputRef.current && !inputRef.current.contains(e.target)) {
-      handleEditSubmit();
-    }
-  };
-
-  // Function to handle Enter key press
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
-      handleEditSubmit();
+      handleEditSubmit(e);
     }
   };
 
-  useEffect(() => {
+  useOutsideClick(inputRef, () => {
     if (isEditing) {
-      document.addEventListener("mousedown", handleClickOutside);
-      document.addEventListener("touchend", handleClickOutside);
-    } else {
-      document.removeEventListener("mousedown", handleClickOutside);
-      document.removeEventListener("touchend", handleClickOutside);
+      handleEditSubmit({ preventDefault: () => {} });
     }
+  });
 
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-      document.removeEventListener("touchend", handleClickOutside);
-    };
+  useEffect(() => {
+    if (isEditing && inputRef.current) {
+      inputRef.current.focus();
+    }
   }, [isEditing]);
 
   return (
     <li className="todo stack-small">
       {isEditing ? (
-        <div className="c-cb">
-          <input
-            ref={inputRef}
-            id={id}
-            type="text"
-            value={newName}
-            onChange={handleNameChange}
-            onKeyDown={handleKeyDown}
-            className="input input__lg"
-          />
-        </div>
+        <form onSubmit={handleEditSubmit} className="editing">
+          <div className="c-cb">
+            <input
+              ref={inputRef}
+              id={`edit-${id}`}
+              type="text"
+              value={newName}
+              onChange={handleNameChange}
+              onKeyDown={handleKeyDown}
+              className="input input__lg"
+              aria-label={`Edit task ${name}`}
+            />
+          </div>
+        </form>
       ) : (
         <>
           <div className="c-cb">
             <input
-              id={id}
+              id={`toggle-${id}`}
               type="checkbox"
               checked={completed}
               onChange={handleStatusChange}
+              aria-label={`Mark ${name} as completed`}
+              tabIndex={0}
             />
             <label
               className="todo-label"
-              htmlFor={id}
+              htmlFor={`toggle-${id}`}
               onClick={() => setIsEditing(true)}
-              onTouchEnd={() => setIsEditing(true)}
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  setIsEditing(true);
+                }
+              }}
             >
               {name}
             </label>
@@ -94,6 +97,7 @@ const Todo = ({ name, completed, id }) => {
               type="button"
               className="btn small-btn btn__danger"
               onClick={handleDelete}
+              aria-label={`Delete ${name}`}
             >
               <MdOutlineDeleteSweep />
             </button>

@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addTodo, setInputValue } from "../../feature/todo.slice";
-import UserCard from "../../Components/UserCard";
-import Form from "../../Components/Form";
-import FilterButton from "../../Components/FilterButton";
-import Todo from "../../Components/Todo";
-import Navbar from "../../Components/Navbar";
+import { addTodo, setInputValue } from "../feature/todo.slice";
+import UserCard from "../Components/UserCard";
+import Form from "../Components/Form";
+import FilterButton from "../Components/FilterButton";
+import Todo from "../Components/Todo";
+import Navbar from "../Components/Navbar";
 
 const FILTER_MAP = {
 	All: () => true,
