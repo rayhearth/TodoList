@@ -9,19 +9,20 @@ const Todo = ({ name, completed, id }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [newName, setNewName] = useState(name);
   const inputRef = useRef(null);
+  const labelRef = useRef(null);
 
   const handleStatusChange = () => {
     dispatch(toggleTodo(id));
   };
-
+  
   const handleDelete = () => {
     dispatch(deleteTodo(id));
   };
-
+  
   const handleNameChange = (e) => {
     setNewName(e.target.value);
   };
-
+  
   const handleEditSubmit = (e) => {
     e.preventDefault();
     if (newName.trim() !== "") {
@@ -31,7 +32,7 @@ const Todo = ({ name, completed, id }) => {
     }
     setIsEditing(false);
   };
-
+  
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
       handleEditSubmit(e);
@@ -49,6 +50,13 @@ const Todo = ({ name, completed, id }) => {
       inputRef.current.focus();
     }
   }, [isEditing]);
+
+  const handleLabelKeyDown = (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      setIsEditing(true);
+    }
+  };
 
   return (
     <li className="todo stack-small">
@@ -76,18 +84,14 @@ const Todo = ({ name, completed, id }) => {
               checked={completed}
               onChange={handleStatusChange}
               aria-label={`Mark ${name} as completed`}
-              tabIndex={0}
             />
             <label
+              ref={labelRef}
               className="todo-label"
               htmlFor={`toggle-${id}`}
-              onClick={() => setIsEditing(true)}
               tabIndex={0}
-              onKeyDown={(e) => {
-                if (e.key === "Enter" || e.key === " ") {
-                  setIsEditing(true);
-                }
-              }}
+              onClick={() => setIsEditing(true)}
+              onKeyDown={handleLabelKeyDown}
             >
               {name}
             </label>

@@ -26,6 +26,16 @@ const Navbar = () => {
 			<div className="menu">
 				<ul>
 					<li>
+						<a href="" className="scrollto">
+							<span className="icon">
+								<i className="fas fa-user"></i>
+							</span>
+							<span className="title" onClick={handleAccueilClick}>
+								Accueil
+							</span>
+						</a>
+					</li>
+					<li>
 						<a href="Login" className="scrollto">
 							<span className="icon">
 								<i className="fas fa-candy-cane"></i>
@@ -41,16 +51,6 @@ const Navbar = () => {
 								<i className="fas fa-store"></i>
 							</span>
 							<span className="title">Mes Tâches</span>
-						</a>
-					</li>
-					<li>
-						<a href="" className="scrollto">
-							<span className="icon">
-								<i className="fas fa-user"></i>
-							</span>
-							<span className="title" onClick={handleAccueilClick}>
-								Accueil
-							</span>
 						</a>
 					</li>
 				</ul>
