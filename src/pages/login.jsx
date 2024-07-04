@@ -71,6 +71,11 @@ const Login = () => {
 	// 			.catch((error) => console.log(error));
 	// };
 
+	const handleCreateAccount = (e) => {
+    e.preventDefault();
+    navigate("/create-account", { state: { email: credentials.email, password: credentials.password } });
+  };
+
 	return (
 		<section className="login">
 			<div className="sign-in">
@@ -151,7 +156,7 @@ const Login = () => {
 						/>
 					</div>
 
-					<button type="submit" className="sign-up-btn">
+					<button type="submit" className="sign-up-btn" onClick={handleCreateAccount}>
 						<span>S'inscrire</span>
 						<BsCaretRightFill />
 					</button>

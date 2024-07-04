@@ -84,6 +84,7 @@ const Todo = ({ name, completed, id }) => {
               checked={completed}
               onChange={handleStatusChange}
               aria-label={`Mark ${name} as completed`}
+              tabIndex={0}
             />
             <label
               ref={labelRef}
