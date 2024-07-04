@@ -1,9 +1,11 @@
 .dashboard {
 	background-color: variables.$orange;
-	height: 100dvh;
 }
 .todoapp {
+	display: flex;
+	flex-direction: column;
 	padding: 1.25rem;
+	gap: 1.25rem;
 }
 .filters {
 	display: flex;
@@ -13,8 +15,6 @@
 }
 .task {
 	align-items: center;
-	padding: 1.25rem;
-	gap: 1.25rem;
 	border-radius: 25px 0 25px 0;
 }
 .input-wrapper {
@@ -27,7 +27,7 @@
 }
 input {
 	flex-grow: 1;
-	padding: 0.5rem 1rem;
+	//padding: 0.5rem 1rem;
 	border-radius: 0.25rem;
 }
 .todo-list {
