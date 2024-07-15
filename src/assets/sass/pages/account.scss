@@ -17,5 +17,11 @@
 	button {
 		background-color: variables.$orange;
     padding: 20px;
+    color: variables.$cream;
+    transition: all .3s ease-in-out;
+    &:hover{
+      color: variables.$darkpurple;
+      background-color: variables.$green;
+    }
 	}
 }

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useLocation, useNavigate } from "react-router";
 import { useDispatch } from "react-redux";
 import { isConnected } from "../feature/user.slice";
@@ -9,6 +9,8 @@ const CreateAccount = () => {
 	const location = useLocation();
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
+	const fileInputRef = useRef(null);
+
 	const [credentials, setCredentials] = useState({
 		email: "",
 		password: "",
@@ -28,11 +30,22 @@ const CreateAccount = () => {
 	}, [location.state]);
 
 	const onChange = (e) => {
-		const { name, value } = e.target;
-		setCredentials((prev) => ({
-			...prev,
-			[name]: value,
-		}));
+		const { name, value, files } = e.target;
+		if (name === "photoUrl" && files.length > 0) {
+			const reader = new FileReader();
+			reader.onload = (upload) => {
+				setCredentials((prev) => ({
+					...prev,
+					photoUrl: upload.target.result,
+				}));
+			};
+			reader.readAsDataURL(files[0]);
+		} else {
+			setCredentials((prev) => ({
+				...prev,
+				[name]: value,
+			}));
+		}
 	};
 
 	const onSubmit = (e) => {
@@ -44,7 +57,7 @@ const CreateAccount = () => {
 				token: "fake-jwt-token",
 				firstName: "Leila",
 				lastName: "Vador",
-				photoUrl: "../assets/img/user.png",
+				photoUrl: credentials.photoUrl,
 			},
 		};
 
@@ -64,11 +77,35 @@ const CreateAccount = () => {
 		navigate("/dashboard");
 	};
 
+	const handleImageClick = () => {
+		fileInputRef.current.click();
+	};
+
 	return (
 		<section className="create-account">
 			<h2>Create Account</h2>
 			<form className="account-form" onSubmit={onSubmit}>
-				<img src={imgprofile} alt="icon for add a profile photo" />
+				<img
+					className="profile-img"
+					src={credentials.photoUrl || imgprofile}
+					alt="icon for add a profile photo"
+					onClick={handleImageClick}
+					onKeyDown={(e) => {
+						if (e.key === "Enter") {
+							handleImageClick();
+						}
+					}}
+					tabIndex="0"
+					role="button"
+					style={{ cursor: "pointer" }}
+				/>
+				<input
+					type="file"
+					name="photoUrl"
+					ref={fileInputRef}
+					style={{ display: "none" }}
+					onChange={onChange}
+				/>
 				<div className="input-wrapper">
 					<label htmlFor="mail-create">Email address</label>
 					<input
@@ -109,16 +146,6 @@ const CreateAccount = () => {
 						value={credentials.lastName}
 						onChange={onChange}
 						id="lastName-create"
-					/>
-				</div>
-				<div className="input-wrapper">
-					<label htmlFor="photoUrl-create">Photo URL</label>
-					<input
-						type="text"
-						name="photoUrl"
-						value={credentials.photoUrl}
-						onChange={onChange}
-						id="photoUrl-create"
 					/>
 				</div>
 				<button type="submit" className="create-account-btn">
