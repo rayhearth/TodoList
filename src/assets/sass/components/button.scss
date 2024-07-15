@@ -8,8 +8,6 @@ button {
 	border: none;
 	font-weight: bold;
 	border-radius: 1.25rem;
-	width: 11rem;
-	height: 2.25rem;
 	background-color: variables.$cream;
 	transition: all .3s ease-in-out;
 	@media screen and (max-width: 425px) {
@@ -51,4 +49,9 @@ button[aria-pressed="true"] {
 		background-color: transparent;
 		color: variables.$darkpurple;
 	}
+}
+
+.toggle-btn{
+	width: 11rem;
+	height: 2.25rem;
 }

@@ -1,13 +1,21 @@
-.create-account{
-  justify-content: flex-start;
-  gap: 1.25rem;
+.create-account {
+	justify-content: flex-start;
+	gap: 1.25rem;
 }
-.account-form{
-  img{
-    max-height: 5rem;
-  }
-  .input-wrapper{
-    display: flex;
-    flex-direction: column;
-  }
+.account-form {
+	img {
+		max-height: 5rem;
+	}
+	.input-wrapper {
+		display: flex;
+		flex-direction: column;
+	}
+	input {
+		background-color: variables.$orange;
+	}
+
+	button {
+		background-color: variables.$orange;
+    padding: 20px;
+	}
 }

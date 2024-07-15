@@ -3,9 +3,9 @@
   gap: 1.25rem;
 }
 .img-accueil {
-	object-fit: cover;
+	object-fit: contain;
 	height: 70%;
-	//width: 100%;
+	width: 100%;
 }
 
 h1 {

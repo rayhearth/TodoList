@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router";
 import { useDispatch } from "react-redux";
 import { isConnected } from "../feature/user.slice";
-import imgprofile from "../assets/img/imgprofile.svg"
+import imgprofile from "../assets/img/imgprofile.svg";
+import start from "../assets/img/start.svg";
 
 const CreateAccount = () => {
 	const location = useLocation();
@@ -121,7 +122,8 @@ const CreateAccount = () => {
 					/>
 				</div>
 				<button type="submit" className="create-account-btn">
-					<span>Create Account</span>
+					<span>Je crée mon compte</span>
+					<img src={start} alt="" />
 				</button>
 			</form>
 		</section>
