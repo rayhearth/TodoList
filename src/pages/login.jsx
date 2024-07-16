@@ -50,56 +50,39 @@ const Login = () => {
 		navigate("/dashboard");
 	};
 
-	//Code initial avec un api
-	// const onSubmit = (e) => {
-	// 	e.preventDefault,
-	// 		dataServices
-	// 			.userLogin(credentials)
-	// 			.then((res) => {
-	// 				accountServices.saveToken(res.body.token);
-	// 				dispatch(
-	// 					isConnected({
-	// 						isAuthentificated: true,
-	// 						email: credentials.email,
-	// 						firstname: res.body.firstname,
-	// 						lastname: res.body.lastname,
-	// 						token: res.body.token,
-	// 					})
-	// 				);
-	// 				navigate("/dashboard");
-	// 			})
-	// 			.catch((error) => console.log(error));
-	// };
-
 	const handleCreateAccount = (e) => {
-    e.preventDefault();
-    navigate("/create-account", { state: { email: credentials.email, password: credentials.password } });
-  };
+		e.preventDefault();
+		navigate("/create-account", {
+			state: { email: credentials.email, password: credentials.password },
+		});
+	};
 
 	return (
 		<section className="login">
 			<div className="sign-in">
-				<h2> Sign In </h2>
+				<h2>Sign In</h2>
 				<form onSubmit={onSubmit}>
 					<div className="input-wrapper">
-						<label htmlFor="mail-connect">e-mail address</label>
 						<input
 							type="text"
-							name="mail-connect"
+							name="email"
+							placeholder=" "
 							value={credentials.email}
 							onChange={onChange}
 							id="mail-connect"
 						/>
+						<label htmlFor="mail-connect">e-mail address</label>
 					</div>
 					<div className="input-wrapper">
-						<label htmlFor="password-connect">Password</label>
 						<input
 							type="password"
 							name="password"
+							placeholder=" "
 							value={credentials.password}
 							onChange={onChange}
 							id="password-connect"
 						/>
+						<label htmlFor="password-connect">Password</label>
 					</div>
 
 					<div className="input-wrapper">
@@ -113,27 +96,29 @@ const Login = () => {
 				</form>
 			</div>
 			<div className="sign-up">
-				<h2> Sign Up </h2>
-				<form onSubmit={onSubmit}>
+				<h2>Sign Up</h2>
+				<form onSubmit={handleCreateAccount}>
 					<div className="input-wrapper">
-						<label htmlFor="mail-register">Email address</label>
 						<input
 							type="text"
 							name="email"
+							placeholder=" "
 							value={credentials.email}
 							onChange={onChange}
 							id="mail-register"
 						/>
+						<label htmlFor="mail-register">Email address</label>
 					</div>
 					<div className="input-wrapper">
-						<label htmlFor="password-register">Password</label>
 						<input
 							type="password"
 							name="password"
+							placeholder=" "
 							value={credentials.password}
 							onChange={onChange}
 							id="password-register"
 						/>
+						<label htmlFor="password-register">Password</label>
 					</div>
 
 					<div className="input-remember">
@@ -156,7 +141,7 @@ const Login = () => {
 						/>
 					</div>
 
-					<button type="submit" className="sign-up-btn" onClick={handleCreateAccount}>
+					<button type="submit" className="sign-up-btn">
 						<span>S'inscrire</span>
 						<BsCaretRightFill />
 					</button>

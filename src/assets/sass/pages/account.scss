@@ -13,15 +13,39 @@
 	input {
 		background-color: variables.$orange;
 	}
+}
 
-	button {
-		background-color: variables.$orange;
-    padding: 20px;
-    color: variables.$cream;
-    transition: all .3s ease-in-out;
-    &:hover{
-      color: variables.$darkpurple;
-      background-color: variables.$green;
-    }
-	}
+.input-wrapper {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.input-wrapper label {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: 0.2s ease all;
+  color: variables.$cream;
+  pointer-events: none;
+}
+
+.input-wrapper input:focus + label,
+.input-wrapper input:not(:placeholder-shown) + label {
+  top: -0.75rem;
+  left: 0.5rem;
+  font-size: 0.8rem;
+  color: #333;
+}
+
+.input-wrapper input {
+  width: 100%;
+  //padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  outline: none;
+}
+
+.profile-img {
+  cursor: pointer;
 }

@@ -3,12 +3,15 @@ button {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	min-width: 11rem;
+	height: 2.25rem;
+	padding: 0.75rem 1.25rem;
 	font-size: 1rem;
 	gap: 1rem;
 	border: none;
 	font-weight: bold;
 	border-radius: 1.25rem;
-	background-color: variables.$cream;
+	background-color: variables.$orange;
 	transition: all .3s ease-in-out;
 	@media screen and (max-width: 425px) {
 		padding: 1rem;
@@ -26,20 +29,17 @@ button[aria-pressed="true"] {
 	background-color: variables.$purple;
 }
 
-.sign-in-btn, .start-button {
-	background-color: variables.$orange;
-}
+// .sign-in-btn, .start-button {
+// 	background-color: variables.$orange;
+// }
 
 .sign-up-btn{
 	background-color: variables.$cream;
 }
 
-.start-button{
-	font-weight: bold;
-}
-
 .small-btn{
-	width: fit-content;
+	min-width: 0;
+	//width: fit-content;
 	background-color: transparent;
 	font-size: 1.25rem;
 	border: none;
@@ -51,7 +51,18 @@ button[aria-pressed="true"] {
 	}
 }
 
-.toggle-btn{
-	width: 11rem;
-	height: 2.25rem;
-}
+// .toggle-btn{
+// 	width: 11rem;
+// 	height: 2.25rem;
+// }
+
+
+// button {
+// 	background-color: variables.$orange;
+// 	color: variables.$cream;
+// 	transition: all .3s ease-in-out;
+// 	&:hover{
+// 		color: variables.$darkpurple;
+// 		background-color: variables.$green;
+// 	}
+// }

@@ -51,13 +51,19 @@ const CreateAccount = () => {
 	const onSubmit = (e) => {
 		e.preventDefault();
 
+		// Validation des champs requis
+		if (!credentials.email || !credentials.password || !credentials.firstName || !credentials.lastName) {
+			alert("Veuillez remplir tous les champs requis.");
+			return;
+		}
+
 		// Simuler une réponse API
 		const simulatedResponse = {
 			body: {
 				token: "fake-jwt-token",
-				firstName: "Leila",
-				lastName: "Vador",
-				photoUrl: credentials.photoUrl,
+				firstName: credentials.firstName,
+				lastName: credentials.lastName,
+				photoUrl: credentials.photoUrl || imgprofile,
 			},
 		};
 
@@ -97,7 +103,6 @@ const CreateAccount = () => {
 					}}
 					tabIndex="0"
 					role="button"
-					style={{ cursor: "pointer" }}
 				/>
 				<input
 					type="file"
@@ -107,46 +112,48 @@ const CreateAccount = () => {
 					onChange={onChange}
 				/>
 				<div className="input-wrapper">
-					<label htmlFor="mail-create">Email address</label>
 					<input
 						type="text"
 						name="email"
-						placeholder="e-mail"
+						placeholder=" "
 						value={credentials.email}
 						onChange={onChange}
 						id="mail-create"
 					/>
+					<label htmlFor="mail-create">e-mail</label>
 				</div>
 				<div className="input-wrapper">
-					<label htmlFor="password-create">Password</label>
 					<input
 						type="password"
 						name="password"
+						placeholder=" "
 						value={credentials.password}
 						onChange={onChange}
 						id="password-create"
 					/>
+					<label htmlFor="password-create">Password</label>
 				</div>
 				<div className="input-wrapper">
-					<label htmlFor="firstName-create">First Name</label>
 					<input
 						type="text"
 						name="firstName"
-						placeholder="firstName"
+						placeholder=" "
 						value={credentials.firstName}
 						onChange={onChange}
 						id="firstName-create"
 					/>
+					<label htmlFor="firstName-create">First Name</label>
 				</div>
 				<div className="input-wrapper">
-					<label htmlFor="lastName-create">Last Name</label>
 					<input
 						type="text"
 						name="lastName"
+						placeholder=" "
 						value={credentials.lastName}
 						onChange={onChange}
 						id="lastName-create"
 					/>
+					<label htmlFor="lastName-create">Last Name</label>
 				</div>
 				<button type="submit" className="create-account-btn">
 					<span>Je crée mon compte</span>
