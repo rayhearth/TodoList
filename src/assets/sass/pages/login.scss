@@ -22,18 +22,7 @@
 			}
 		}
 	}
-	.input-wrapper {
-		display: flex;
-		flex-direction: column;
-		gap: 0.75rem;
-		p {
-			color: #6e6a7c;
-		}
-		input {
-			max-width: 22rem;
-		}
-	}
-
+	
 	.input-remember {
 		display: flex;
 		gap: 1.25rem;
